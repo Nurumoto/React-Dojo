@@ -1,0 +1,79 @@
+.banner{
+    width: 100%;
+    height: 100vh;
+    background-image: url('../../../_assets/images/designer-at-office-P4HVJL9.jpg');
+    /* background-size: 100%; */
+    /* display: flex;
+    justify-content: space-between; */
+    /* padding: 0 6.7vw; */
+    /* position: relative; */
+}
+.banner .bleu {
+    position: absolute;
+    margin-top: 13vw;
+    margin-left: 48vw;
+}
+.banner .description{
+    position: relative;
+    color: #ffffff;
+}
+.banner .description .concept {
+    font-weight: bold;
+}
+.banner .description .banner-desc {
+    /* margin-left: 7vw;
+    margin-top: 6vh; */
+    font-weight: bold;
+}
+.banner .login-register {
+    z-index: 1;
+}
+.banner .login-register .login {
+    /* width: 29vw; */
+    /* height: 510px; */
+    /* margin-top: 35vh; */
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 20px 10%;
+}
+.banner .login-register .login .connexion {
+    display: flex;
+    justify-content: center;
+    font-size: 42px;
+    color: #02178D;
+    margin: 0 auto;
+}
+.banner .login-register .login-form  {
+    margin-top: 20px;
+}
+.banner .login-register .login .login-form .login-connecter {
+    display: flex;
+    justify-content: center;
+}
+.banner .login-register .login .login-form .login-connecter .login-btn {
+    height: 47px;
+    background-color: #02178D;
+    margin: 0 auto;
+}
+.banner .login-register .login .or {
+    width:100%; 
+    justify-content: center;
+    text-align:center; 
+    border-bottom: 1px solid #02178D; 
+    line-height:0.1em; 
+}
+.banner .login-register .login .or span{
+    background:#fff; padding:0 10px;
+}
+.banner .login-register .login .social-login {
+    display: flex;
+    justify-content: center;
+}
+.banner .login-register .login .social-login .login-btn {
+    color: #000000 !important;
+}
+.banner .login-register .login .loginOrRegister {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}

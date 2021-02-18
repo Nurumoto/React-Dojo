@@ -1,0 +1,44 @@
+.participants{
+    padding: 0 6.7vw;
+}
+.participants .description{
+    height: 100%;
+    color: #02178D;
+}
+
+.participants .description .participants-brand .brand-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 270px;
+    height: 138px;
+    border: 1px solid #DFE5EF;
+}
+.participants .description .participants-brand .brand-item img {
+    width: 60%;
+}
+
+.participants .bis-1 {
+    width: 10.5vw;
+    position: absolute;
+    margin-top: 18.5vh;
+    margin-left: 61vw;
+}
+.participants .bis-2 {
+    width: 10.5vw;
+    position: absolute;
+    margin-top: 64vh;
+    margin-left: 80vw;
+}
+@media screen and (max-width:1024px) {
+    .participants .description .participants-brand .brand-item {
+        width: 225px;
+        height: 115px;
+    }
+}
+@media screen and (max-width:768px) {
+    .participants .description .participants-brand .brand-item {
+        width: 135px;
+        height: 69px;
+    }
+}

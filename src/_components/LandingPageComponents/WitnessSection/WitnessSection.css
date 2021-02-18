@@ -1,0 +1,78 @@
+.witness{
+    padding: 0 6.7vw;
+    background-color: #E9EBF4;
+}
+.witness .description{
+    /* width: 60%;
+    height: 100%; */
+    color: #02178D;
+}
+
+.witness .description .witness-desc {
+    margin-left: 7vw;
+    margin-top: 6vh;
+    font-size: 20px;
+    font-weight: bold;
+}
+.witness .description .witness-desc .witness-desc-item {
+    display: flex;
+    align-items: center;
+    margin-top: 35px;
+}
+.witness .bis-1 {
+    width: 10.5vw;
+    position: absolute;
+    margin-top: 18.5vh;
+    margin-left: 61vw;
+}
+.witness .bis-2 {
+    width: 10.5vw;
+    position: absolute;
+    margin-top: 64vh;
+    margin-left: 80vw;
+}
+
+.dojo-comments {
+    display: flex !important;
+    align-items: center;
+}
+.comment-text {
+    margin-left: 20px;
+}
+.comment-slider {
+    font-family: sans-serif;
+    padding: 10px 30px;
+}
+  
+.comment-slider > div {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border: 4px solid #02178D;
+    padding: 20px;
+    border-radius: 10px;
+    height: 200px;
+    color: #02178D;
+    text-align: center;
+}
+.slick-next {
+    right: -75px;
+}
+.slick-prev {
+    left: -100px;
+}
+.slick-prev:before, .slick-next:before {
+    font-size: 40px;
+    color: #02178D;
+}
+@media screen and ( max-width: 640px){
+    .slick-arrow {
+        display: none !important;
+    }
+    .comment-slider {
+        padding: 0;
+    }
+    .slick-slide img {
+        width: 80px;
+    }
+}

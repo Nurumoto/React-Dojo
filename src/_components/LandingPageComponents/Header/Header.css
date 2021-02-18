@@ -1,0 +1,39 @@
+.landHeader {
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+}
+.landHeader .navbar{
+    background-color: #02178D;
+    color: #ffffff !important;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.landHeader .navbar .navbar-brand{
+    width: 8%;
+}
+.landHeader .logo{
+    width: 100%;
+}
+.landHeader .navbar-nav{
+    width: 20%;
+    justify-content: space-between;
+}
+.landHeader .navbar .inactive {
+    color: #fff;
+    text-decoration: none;
+}
+
+.landHeader .navbar .active {
+    color: red;
+    text-decoration: none;
+}
+
+.landHeader .navbar .collapse{
+    /* display: flex; */
+    justify-content: flex-end;
+}
+
+.landHeader .nav-item{
+    margin-left: 20px;
+}

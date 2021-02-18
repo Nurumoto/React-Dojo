@@ -1,0 +1,30 @@
+.utility{
+    padding: 0 6.7vw;
+}
+.utility .description{
+    height: 100%;
+    color: #02178D;
+}
+.utility .description .title {
+    font-weight: bold;
+}
+.utility .description .utility-desc {
+    margin-left: 2vw;
+    margin-top: 6vh;
+    font-size: 20px;
+    font-weight: bold;
+}
+.utility .description .utility-desc .utility-desc-item {
+    display: flex;
+    align-items: center;
+    margin-top: 35px;
+}
+/* .vaguelette_bleu {
+    margin-top: -50px;
+    margin-left: -6.7vw;
+} */
+/* @media screen and (max-width: 768px) {
+    .vaguelette_bleu {
+        margin-top: -25px;
+    }
+} */

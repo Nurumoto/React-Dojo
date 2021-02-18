@@ -1,0 +1,29 @@
+.land-footer {
+    width: 100%;
+    /* height: 207px; */
+    padding: 30px 6.7vw;
+    display: flex;
+    justify-content: space-between;
+    background-color: #E9EBF4;
+    color: #02178D;
+    font-size: 14px;
+}
+.land-footer .land-footer-item div{
+    margin-bottom: 5px;
+}
+.land-footer .land-footer-item .land-footer-title {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.newsletter {
+    display: flex;
+    margin-top: 15px;
+}
+.newsletter .newletter-btn {
+    margin-left: 10px;
+    background-color: #02178D !important;
+}
+.newsletter-email{
+    background-color: #E9EBF4;
+    border: 1px solid #02178D;
+}
