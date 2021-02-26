@@ -1,0 +1,30 @@
+.profile-card {
+    width: 100%;
+    border: 3px  solid #02178D;
+    border-radius: 10px;
+    margin-top: 30px;
+    padding: 40px;
+}
+/* .profile-card .client-avatar{
+
+} */
+.profile-card .client-name {
+    margin-top: 45px;
+    font-size: 28px;
+    color: #02178D;
+}
+.profile-card .client-company {
+    font-size: 14px;
+    color: #5E7FB1;
+}
+.profile-card .client-desc {
+    margin-top: 45px;
+    font-size: 18px;
+    color: #5E7FB1;
+}
+.profile-card .client-edit {
+    margin-top: 45px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #02178D;
+}

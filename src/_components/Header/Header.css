@@ -1,0 +1,10 @@
+.main-header .navbar {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.main-header .navbar-collapse {
+    flex-grow: unset;
+}
+.main-header .navbar-expand-md {
+    justify-content: space-between;
+}

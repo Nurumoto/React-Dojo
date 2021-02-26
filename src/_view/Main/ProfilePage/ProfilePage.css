@@ -1,0 +1,27 @@
+.profile-page {
+    padding: 0 5%;
+}
+
+.profile-page .profile-field .profile-item .profile-select-group{
+    border: 1px solid #D8E2EE;
+    color: #5E7FB1;
+}
+.profile-page .profile-field .profile-item .profile-select-group .dropdown-line {
+    border-bottom: 1px solid #D8E2EE;
+}
+.validate button{
+    padding: 12px 25px;
+    background-color: #02178D;
+    color: #ffffff;
+    border-radius: 5px;
+    border: none;
+}
+.validate button:hover {
+    background-color: #F29F03;
+}
+
+@media screen and (max-width: 640px) {
+    .profile-page .profile-field .profile-item .profile-select-group{
+        padding: 15px 10px;
+    }
+}

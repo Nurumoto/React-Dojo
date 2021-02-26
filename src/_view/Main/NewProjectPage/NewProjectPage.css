@@ -1,0 +1,20 @@
+.new-project {
+    width: 100%;
+}
+.project-container{
+    padding-left: 6.7vw;
+    margin-top: 14.5vh;
+}
+.new-project .profile-card-title {
+    color: #02178D;
+    font-size: 42px;
+}
+.new-project .card-content{
+    width: 100%;
+    padding: 0 100px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.new-project .first-project{
+    width: 100%;
+}

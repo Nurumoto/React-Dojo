@@ -1,0 +1,52 @@
+.project-detail {
+    padding: 0 4.8vw;
+}
+.curved-corner-bottomleft:before {
+    bottom: 0;
+    left: 0;
+    box-shadow: -50px 50px 0 0 red;
+    content: "";
+    display: block;
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    border-radius: 50%;
+}
+.curved-corner-bottomright {
+    bottom: 0;
+    right: 0;
+    box-shadow: 50px 50px 0 0 red;
+    content: "";
+    display: block;
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    border-radius: 50%;
+}
+.curved-corner-topleft {
+    top: 0;
+    left: 0;
+    box-shadow: -50px -50px 0 0 red;
+    content: "";
+    display: block;
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    border-radius: 50%;
+}
+.curved-corner-topright {
+    top: 0;
+    right: 0;
+    box-shadow: 50px -50px 0 0 red;
+    content: "";
+    display: block;
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.diagram-click {
+    margin-top: -40px;
+    margin-left: -40px;
+}

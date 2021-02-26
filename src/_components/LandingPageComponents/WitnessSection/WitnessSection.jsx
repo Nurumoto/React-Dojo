@@ -36,7 +36,7 @@ function WitnessSection() {
     const renderSlides = () =>
         comments.map((comment, i) => (
             <div className="dojo-comments" key={i}>
-                <img src={comment.img} className="rounded-circle" alt="" />
+                <img src={comment.img} className="w-20 h-20 rounded-full" alt="" />
                 <p className="comment-text">
                     {comment.text}
                 </p>

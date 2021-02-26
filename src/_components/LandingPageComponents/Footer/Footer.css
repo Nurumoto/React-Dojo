@@ -19,11 +19,3 @@
     display: flex;
     margin-top: 15px;
 }
-.newsletter .newletter-btn {
-    margin-left: 10px;
-    background-color: #02178D !important;
-}
-.newsletter-email{
-    background-color: #E9EBF4;
-    border: 1px solid #02178D;
-}
