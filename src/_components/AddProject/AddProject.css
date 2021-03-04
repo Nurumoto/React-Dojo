@@ -1,12 +1,8 @@
 .add-project{
     width: 100%;
-    height: 440px;
     padding: 30px;
     margin-top: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-.add-project img {
-    width: 7.6vw;
 }

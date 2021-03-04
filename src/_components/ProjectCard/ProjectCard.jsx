@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Row } from 'reactstrap';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import poubelle from '../../_assets/images/poubelle.png';
 import profile_blank from '../../_assets/images/Slider Image.png';
@@ -7,7 +6,6 @@ import './ProjectCard.css';
 
 function ProjectCard(props) {
     const {
-        buttonLabel,
         className
     } = props;
     const [modal, setModal] = useState(false);
@@ -21,16 +19,15 @@ function ProjectCard(props) {
             <div className="project-img">
                 <img src={profile_blank} className="w-full h-full" alt="profile image" />
             </div>
-            <Row className="project-name justify-content-center">
+            <div className="w-full flex justify-center project-name">
                 {props.detail.projectName}
-            </Row>
-            <div className="project-desc justify-content-center">
+            </div>
+            <div className="w-full flex justify-center project-desc">
                 {props.detail.projectDesc}
             </div>
             <div className="project-delete">
                 <img src={poubelle} alt="delete" onClick={toggle} />
             </div>
-            {/* <div>{props.detail.projectId}</div> */}
             <Modal isOpen={modal} toggle={toggle} className={className} centered={true} backdrop={false}>
                 <ModalHeader toggle={toggle}>
                     <img src={poubelle} alt="delete" style={{width: '35px'}} />

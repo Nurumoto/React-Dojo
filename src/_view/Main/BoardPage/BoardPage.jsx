@@ -42,8 +42,8 @@ function BoardPage() {
     return(
         <div className="board-page w-full h-full mx-auto">
             <Header></Header>
-            <div className="board-container grid grid-cols-12 gap-2 h-4/5">
-                <div className="col-span-12 md:col-span-9">
+            <div className="board-container block md:flex gap-2 h-4/5 mt-10 pb-10">
+                <div className="w-full md:w-3/4">
                     <Nav tabs>
                         <NavItem>
                             <NavLink
@@ -64,13 +64,13 @@ function BoardPage() {
                     </Nav>
                     <TabContent activeTab={activeTab} className="rounded-tl-none rounded dj-d-blue">
                         <TabPane tabId="1" className="relative">
-                        <div className="flex justify-between absolute w-full top-20 px-20">
-                            <div className="text-3xl">capacity</div>
-                                <div className="text-3xl">Community building</div>
+                            <div className="flex justify-between absolute w-full top-20 px-20">
+                                <div className="text-xl xl:text-2xl 2xl:text-3xl">capacity</div>
+                                <div className="text-xl xl:text-2xl 2xl:text-3xl">Community building</div>
                             </div>
                             <div className="flex justify-between absolute w-full bottom-20 px-20">
-                                <div className="text-3xl">Legacy</div>
-                                <div className="text-3xl">BizDev</div>
+                                <div className="text-xl xl:text-2xl 2xl:text-3xl">Legacy</div>
+                                <div className="text-xl xl:text-2xl 2xl:text-3xl">BizDev</div>
                             </div>
                             <div className="round-chart">
                                 <img src={diagram} className="blue" alt="diagram" />
@@ -109,52 +109,37 @@ function BoardPage() {
                     </TabContent>
                     
                 </div>
-                <div className="col-span-12 md:col-span-3 md:pt-16 lg:pt-10 pt-30">
-                    {/* <div className="grid grid-cols-12 gap-2"> */}
-                        {/* <div className="create-date col-span-12 lg:col-span-8 rounded p-2">
-                            <div className="text-3xl text-center dj-d-blue">Sans-titre</div>
-                            <div className="text-center mt-2 dj-l-blue">15 / 10 / 2020 </div>
-                            <div className="text-center mt-6 dj-d-blue font-medium">Modifier </div>
-                        </div> */}
-                        <div className="grid grid-rows-4 grid-cols-12 col-span-12 grid-flow-col gap-2">
-                            <div className="row-span-4 col-span-8 create-date rounded-lg p-3 ...">
-                                <div className="text-3xl text-center dj-d-blue p-2">Sans-titre</div>
-                                <div className="text-center dj-l-blue">15 / 10 / 2020 </div>
-                                <div className="text-center mt-4 dj-d-blue font-medium">Modifier </div>
-                            </div>
-                            <div className="row-span-2 col-span-4 rounded-lg ...">
-                                <Button className="btn w-full h-full dj-db-blue py-3 ">
-                                    <img src={save} className="m-auto" alt="save" onClick={toggleModal} />
-                                </Button>
-                            </div>
-                            <div className="row-span-2 col-span-4 rounded-lg ...">
-                                <Button className="btn w-full h-full  dj-db-blue py-3">
-                                    <img src={download} className="m-auto"  alt="download" />
-                                </Button>
-                            </div>
+                <div className="w-full md:w-1/4 md:pt-16 lg:pt-10 pt-30 gap-2">
+                    <div className="grid grid-rows-4 grid-cols-12 col-span-12 grid-flow-col gap-2">
+                        <div className="row-span-4 col-span-8 create-date rounded-lg p-3 ...">
+                            <div className="text-2xl 2xl:text-3xl text-center dj-d-blue p-2">Sans-titre</div>
+                            <div className="text-center dj-l-blue">15 / 10 / 2020 </div>
+                            <div className="text-center mt-4 dj-d-blue font-medium">Modifier </div>
                         </div>
-                        {/* <div className="create-action col-span-12 lg:col-span-4 grid content-between">
-                            <Button className="btn py-3">
+                        <div className="row-span-2 col-span-4 rounded-lg ...">
+                            <Button className="btn w-full h-full dj-db-blue py-3 ">
                                 <img src={save} className="m-auto" alt="save" onClick={toggleModal} />
                             </Button>
-                            <Button className="btn py-3 m-auto">
+                        </div>
+                        <div className="row-span-2 col-span-4 rounded-lg ...">
+                            <Button className="btn w-full h-full  dj-db-blue py-3">
                                 <img src={download} className="m-auto"  alt="download" />
                             </Button>
-                        </div> */}
-                    {/* </div> */}
-                    <div className="create-comment gap-2 rounded p-4">
-                        <div className="dj-d-blue text-center text-3xl">
+                        </div>
+                    </div>
+                    <div className="create-comment mt-2 rounded p-3">
+                        <div className="dj-d-blue font-bold text-center text-2xl 2xl:text-3xl">
                             Comment compléter ?
                         </div>
                         <div>
-                            <div className="dj-d-blue text-2xl mt-2 ">Capacities</div>
+                            <div className="dj-d-blue text-xl 2xl:text-2xl mt-2 ">Capacities</div>
                             <div className="dj-l-blue">
                                 Les moyens accumulés pour mettre en œuvre son action et 
                                 s’appuyer sur ces communautés pour bâtir.
                             </div>
                         </div>
                         <div>
-                            <div className="dj-d-blue text-2xl mt-2">
+                            <div className="dj-d-blue text-xl 2xl:text-2xl mt-2">
                                 Legacy
                             </div>
                             <div className="dj-l-blue">
@@ -163,7 +148,7 @@ function BoardPage() {
                             </div>
                         </div>
                         <div>
-                            <div className="dj-d-blue text-2xl mt-2">
+                            <div className="dj-d-blue text-xl 2xl:text-2xl mt-2">
                                 Community Building
                             </div>
                             <div className="dj-l-blue">
@@ -174,7 +159,7 @@ function BoardPage() {
                         </div>
                         
                         <div>
-                            <div className="dj-d-blue text-2xl mt-2">
+                            <div className="dj-d-blue text-xl 2xl:text-2xl mt-2">
                                 BizDev
                             </div>
                             <div className="dj-l-blue">
@@ -182,13 +167,13 @@ function BoardPage() {
                                 et d’agréger / de financer les moyens nécessaires.
                             </div>
                         </div>
-                        {/* <div className="divide-y divide-fuchsia-300">
-                            
-                        </div> */}
+                        <div className="w-full flex justify-center p-3">
+                            <div className="w-2/3 h-0.5 dj-lb-blue"></div>
+                        </div>
                         <div className="grid grid-cols-1">
-                            <div className="flex items-end text-xl"><div className="dj-d-blue text-2xl">Inner Circle</div> : Stakeholder</div>
-                            <div className="flex items-end text-xl"><div className="dj-d-blue text-2xl">Middle Circle</div> : Benefit</div>
-                            <div className="flex items-end text-xl"><div className="dj-d-blue text-2xl">Outer Circle</div> : Cost</div>
+                            <div className="flex items-end text-xl"><div className="dj-d-blue text-xl 2xl:text-2xl">Inner Circle</div> : <div className="dj-l-blue ml-1">Stakeholder</div></div>
+                            <div className="flex items-end text-xl"><div className="dj-d-blue text-xl 2xl:text-2xl">Middle Circle</div> : <div className="dj-l-blue ml-1">Benefit</div></div>
+                            <div className="flex items-end text-xl"><div className="dj-d-blue text-xl 2xl:text-2xl">Outer Circle</div> : <div className="dj-l-blue ml-1">Cost</div></div>
                         </div>
                         <div className="flex mt-3 justify-center">
                             <Link to="/projectDetail">

@@ -18,16 +18,12 @@
 }
 .board-page .board-container .nav-item {
     width: 30%;
-    /* min-width: 400px; */
     margin-bottom: -2px;
 }
 .tab-content{
     height: calc(100% - 41px);
     border: 1px solid #02178D;
     overflow: hidden;
-    /* border-radius: 5px; */
-    /* border-top-left-radius: 0; */
-    /* padding: 100px 70px; */
 }
 .create-date{
     border: 1px solid #02178D;
@@ -42,7 +38,6 @@
     background-color: #02178D;
 }
 .create-comment{
-    height: 83%;
     margin-top: 1%;
     border: 1px solid #02178D;
 }
@@ -68,9 +63,8 @@
 }
 
 .blue {
-    height: 600px;
     width: 600px;
-    /* border: 1px solid #02178D; */
+    height: 600px;
     position: relative;
 }
 
@@ -101,4 +95,39 @@
 }
 .modal-content {
     padding: 1rem 2.5rem;
+}
+
+@media screen and ( min-width: 640px){
+    .round-chart .blue {
+        width:  300px;
+        height: 300px;
+    }
+}
+
+@media screen and ( min-width: 768px){
+    .round-chart .blue {
+        width:  400px;
+        height: 400px;
+    }
+}
+
+@media screen and ( min-width: 768px){
+    .round-chart .blue {
+        width:  400px;
+        height: 400px;
+    }
+}
+
+@media screen and ( min-width: 1280px){
+    .round-chart .blue {
+        width:  450px;
+        height: 450px;
+    }
+}
+
+@media screen and ( min-width: 1536px){
+    .round-chart .blue {
+        width:  600px;
+        height: 600px;
+    }
 }

@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Row, Col } from 'reactstrap';
 import { Header } from '../../../_components/Header';
 import { ProfileCard } from '../../../_components/ProfileCard';
 import { AddEmptyCard } from '../../../_components/AddEmptyCard';
 import { AddProject } from '../../../_components/AddProject';
 import { ProjectCard } from '../../../_components/ProjectCard';
-import { project } from '../../../_actions';
+// import { project } from '../../../_actions';
 import './NewProjectPage.css';
 import { projects } from './project';
 
@@ -17,19 +16,21 @@ function NewProjectPage() {
     return(
         <div className="new-project">
             <Header></Header>
-            <Row className="project-container">
-                <Col md="3">
-                    <Row className="justify-content-center profile-card-title">Mon profil</Row>
+            <div className="block md:flex gap-28 px-10 sm:px-20 2xl:px-24 mt-40 pb-20">
+                <div className="w-full md:w-1/3 lg:w-1/4">
+                    <div className="w-full text-center profile-card-title font-bold">
+                        Mon profile
+                    </div>
                     <ProfileCard></ProfileCard>
-                </Col>
-                <Col md="9">
-                    <Row className="justify-content-center profile-card-title">Mon espace</Row>
-                    <Row className="card-content" style={{filter: blur? 'blur(4px)' : 'none'}}>
+                </div>
+                <div className="w-full mt-20 md:mt-0 md:w-2/3 lg:w-3/4">
+                    <div className="w-full text-center profile-card-title font-bold">
+                        Mon espace
+                    </div>
+                    <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" style={{filter: blur? 'blur(4px)' : 'none'}}>
                         {
                             projects.length==0 ? (
-                                <Row className="first-project justify-content-center">
-                                    <AddEmptyCard></AddEmptyCard>
-                                </Row>
+                                <AddEmptyCard></AddEmptyCard>
                             ) : (
                                 <AddProject></AddProject>
                             )
@@ -38,18 +39,16 @@ function NewProjectPage() {
                             projects.length>0 ? (
                                 projects.map((project, i) => {
                                     return(
-                                        <Col md="4" key={i}>
-                                            <ProjectCard detail={project} toggleBlur={toggleBlur}></ProjectCard>
-                                        </Col>
+                                        <ProjectCard detail={project} toggleBlur={toggleBlur} key={i}></ProjectCard>
                                     )
                                 })
                             ) : (
                                 <div></div>
                             )
                         }
-                    </Row>
-                </Col>
-            </Row>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

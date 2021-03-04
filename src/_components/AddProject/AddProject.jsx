@@ -1,17 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Col } from 'reactstrap';
 import plusbutton from '../../_assets/images/nouveau_project - 1.png';
 import './AddProject.css';
 
 
 function AddProject() {
     return(
-        <Col md="4" className="add-project">
+        <div className="add-project">
             <Link to={`/addBoard`}>
-                <img src={plusbutton} alt="add" />
+                {/* <img src={plusbutton} alt="add" /> */}
+                <div className="w-28 2xl:w-40 h-28 2xl:h-40">
+                    <img className="w-full h-full rounded-full" src={ plusbutton } alt="add" />
+                </div>
             </Link>
-        </Col>
+        </div>
     )
 }
 
