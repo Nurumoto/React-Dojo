@@ -11,24 +11,15 @@ export const userActions = {
     delete: _delete
 };
 
-function login(email, password, from) {
-    
+function login(username, password, from) {
     return dispatch => {
-        dispatch(request({ email }));
+        dispatch(request({ username }));
 
-        userService.login(email, password)
+        userService.login(username, password)
             .then(
                 user => { 
-                    console.log('from', from);
+                    dispatch(success(user));
                     history.push(from);
-                    // if(user.success){
-                    //     dispatch(success(user));
-                    //     history.push(from);
-                    //     dispatch(alertActions.success(user.message));
-                    // }
-                    // else{
-                    //     dispatch(alertActions.error(user.message));
-                    // }
                 },
                 error => {
                     dispatch(failure(error.toString()));
@@ -38,7 +29,7 @@ function login(email, password, from) {
     };
 
     function request(user) { return { type: userConstants.LOGIN_REQUEST, user } }
-    // function success(user) { return { type: userConstants.LOGIN_SUCCESS, user } }
+    function success(user) { return { type: userConstants.LOGIN_SUCCESS, user } }
     function failure(error) { return { type: userConstants.LOGIN_FAILURE, error } }
 }
 

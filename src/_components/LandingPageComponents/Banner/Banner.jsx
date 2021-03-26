@@ -1,39 +1,71 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Button, Form, FormGroup, Input } from 'reactstrap';
 import { useLocation } from "react-router-dom";
+import {
+    useScrollSection,
+  } from 'react-scroll-section';
+
 import { userActions } from '../../../_actions';
-import bleu from '../../../_assets/images/bleu - 1.png';
+import bleu from '../../../_assets/images/DOJO-1.png';
+import downArrow from '../../../_assets/images/DOJO-2.png';
 import './Banner.css';
 
 function Banner() {
     const [toggle, setToggle] = useState(true);
+    const utilitySection = useScrollSection('utility');
     const [inputs, setInputs] = useState({
         email: '',
         password: ''
     });
+    const [user, setUser] = useState({
+        firstName: '',
+        lastName: '',
+        username: '',
+        password: ''
+    });
     const [submitted, setSubmitted] = useState(false);
+    const [register, setRegister] = useState(false);
+    const registering = useSelector(state => state.registration.registering);
     const { email, password } = inputs;
     const dispatch = useDispatch();
     const location = useLocation();
+
+    useEffect(() => {
+        dispatch(userActions.logout());
+    }, []);
 
     function handleChange(e) {
         const { name, value } = e.target;
         setInputs(inputs => ({ ...inputs, [name]: value }));
         console.log('email', inputs);
     }
-
+    function handleRegisterChange(e) {
+        const { name, value } = e.target;
+        setUser(user => ({ ...user, [name]: value }));
+    }
     function handleSubmit(e) {
         e.preventDefault();
         setSubmitted(true);
         if (email && password) {
-            // get return url from location state or default to home page
             const { from } = location.state || { from: { pathname: "/main" } };
             dispatch(userActions.login(email, password, from));
         }
     }
+
+    function handleRegister(e) {
+        e.preventDefault();
+
+        setSubmitted(true);
+        console.log("asdfsf")
+        if (user.firstName && user.lastName && user.username && user.password) {
+            dispatch(userActions.register(user));
+        }
+    }
+
     return(
         <div className="banner bg-no-repeat flex justify-center items-center relative bg-center bg-cover h-full sm:h-screen px-6 md:px-16 xl:px-24 2xl:px-36 min-h-screen py-2 md:py-0">
+            <img src={ downArrow } className="w-6 h-6 2xl:w-10 2xl:h-10 absolute bottom-20 hidden md:block left-1/3 cursor-pointer" alt="" onClick={utilitySection.onClick} selected={utilitySection.selected} />
             <div className="flex w-full grid grid-cols-12 mt-10 md:mt-0 items-center 2xl:items-baseline">
                 <div className="description col-span-12 md:col-span-7 ">
                     <div className="concept text-5xl 2xl:text-8xl">Concept</div>
@@ -44,7 +76,7 @@ function Banner() {
                     </div>
                 </div>
                 <div className="hidden lg:block lg:col-span-1"></div>
-                <div className="login-register col-span-12 md:col-span-5 col-span lg:col-span-4 mt-2 md:mt-0 relative">
+                <div className="login-register col-span-12 md:col-span-5 col-span lg:col-span-4 mt-10 2xl:mt-0 relative">
                     <img className="w-28 2xl:w-56 absolute xl:-top-20 xl:-left-24 2xl:-top-28 2xl:-left-40" style={{'zIndex': '-1'}} src={ bleu }alt="" />
                     {
                         toggle ? (
@@ -94,7 +126,7 @@ function Banner() {
                         ) : (
                             <div className="login">
                                 <div className="connexion text-3xl 2xl:text-6xl dj-d-blue text-center pb-5">Créer un compte</div>
-                                <Form className="login-form gap-2 text-xs sm:text-sm 2xl:text-base">
+                                {/* <Form className="login-form gap-2 text-xs sm:text-sm 2xl:text-base" onSubmit={handleRegister}>
                                     <div className="w-full grid grid-cols-4 flex gap-0 sm:gap-2 mb-4">
                                         <FormGroup className="col-span-4 sm:col-span-2 mb-4 sm:mb-0">
                                             <Input type="text" className="w-full p-3 text-xs sm:text-sm 2xl:text-base border rounded border-gray-200" name="name" id="name" placeholder="Nom Prénom" />
@@ -119,8 +151,44 @@ function Banner() {
                                     <div className="login-connecter">
                                         <Button className="login-btn w-full xl:w-3/6 text-white rounded bg-blue-900 hover:bg-yellow-500">Se connecter</Button>
                                     </div>
-                                </Form>
-                                
+                                </Form> */}
+                                <form name="form" onSubmit={handleRegister}>
+                                    <div className="form-group">
+                                        <label>First Name</label>
+                                        <input type="text" name="firstName" value={user.firstName} onChange={handleRegisterChange} className={'form-control' + (submitted && !user.firstName ? ' is-invalid' : '')} />
+                                        {register && !user.firstName &&
+                                            <div className="invalid-feedback">First Name is required</div>
+                                        }
+                                    </div>
+                                    <div className="form-group">
+                                        <label>Last Name</label>
+                                        <input type="text" name="lastName" value={user.lastName} onChange={handleRegisterChange} className={'form-control' + (register && !user.lastName ? ' is-invalid' : '')} />
+                                        {register && !user.lastName &&
+                                            <div className="invalid-feedback">Last Name is required</div>
+                                        }
+                                    </div>
+                                    <div className="form-group">
+                                        <label>Username</label>
+                                        <input type="text" name="username" value={user.username} onChange={handleRegisterChange} className={'form-control' + (register && !user.username ? ' is-invalid' : '')} />
+                                        {register && !user.username &&
+                                            <div className="invalid-feedback">Username is required</div>
+                                        }
+                                    </div>
+                                    <div className="form-group">
+                                        <label>Password</label>
+                                        <input type="password" name="password" value={user.password} onChange={handleRegisterChange} className={'form-control' + (register && !user.password ? ' is-invalid' : '')} />
+                                        {register && !user.password &&
+                                            <div className="invalid-feedback">Password is required</div>
+                                        }
+                                    </div>
+                                    <div className="form-group">
+                                        <button className="btn btn-primary">
+                                            {registering && <span className="spinner-border spinner-border-sm mr-1"></span>}
+                                            Register
+                                        </button>
+                                        {/* <Link to="/login" className="btn btn-link">Cancel</Link> */}
+                                    </div>
+                                </form>
                                 
                                 <div className="loginOrRegister text-xs sm:text-sm 2xl:text-base">
                                     <div>Vous avez déjà un compte ? </div>

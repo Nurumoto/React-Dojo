@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { useLocation } from "react-router-dom";
+// import { useDispatch } from 'react-redux';
+import { useLocation, Link } from "react-router-dom";
 import { profileData } from './profileData';
-import { profileActions } from '../../../_actions';
+// import { profileActions } from '../../../_actions';
 import { Dropdown } from '../../../_components/DropDown';
 import './ProfilePage.css';
 
 function ProfilePage() {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     const location = useLocation();
 
     const [field1, setField1] = useState('');
@@ -28,13 +28,12 @@ function ProfilePage() {
         else if(e.fieldId === 4) {
             setField4(e.text);
         }
-        console.log('result', field1, field2, field3, field4);
     }
     function validate(e) {
         e.preventDefault();
         if( field1 && field2 && field3 && field4) {
             const { from } = location.state || { from: { pathname: "/projects" } };
-            dispatch(profileActions.create(field1, field2, field3, field4, from));
+            // dispatch(profileActions.create(field1, field2, field3, field4, from));
         }
     }
     return(
@@ -57,8 +56,9 @@ function ProfilePage() {
                         })
                     }
                 </div>
-                <div className="validate w-full flex justify-start md:justify-end mt-2 md:mt-0">
-                    <button onClick={validate}>Valider mes réponses</button>
+                <div className="validate w-full flex justify-start md:justify-end mt-2 md:mt-0 mb-5">
+                    {/* <button onClick={validate}>Valider mes réponses</button> */}
+                    <Link to="/projects">Valider mes réponses</Link>
                 </div>
             </div>
         </div>

@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import { Header } from '../../../_components/Header';
 import { ProfileCard } from '../../../_components/ProfileCard';
 import { AddEmptyCard } from '../../../_components/AddEmptyCard';
 import { AddProject } from '../../../_components/AddProject';
 import { ProjectCard } from '../../../_components/ProjectCard';
-// import { project } from '../../../_actions';
 import './NewProjectPage.css';
 import { projects } from './project';
 
 function NewProjectPage() {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     const [ blur, setBlur ] = useState(false);
     const toggleBlur = () => setBlur(!blur);
     return(
@@ -29,7 +28,7 @@ function NewProjectPage() {
                     </div>
                     <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" style={{filter: blur? 'blur(4px)' : 'none'}}>
                         {
-                            projects.length==0 ? (
+                            projects.length===0 ? (
                                 <AddEmptyCard></AddEmptyCard>
                             ) : (
                                 <AddProject></AddProject>

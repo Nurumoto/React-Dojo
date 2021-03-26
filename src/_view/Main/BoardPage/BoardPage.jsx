@@ -35,9 +35,9 @@ function BoardPage() {
         setCongrateModal(!congrateModal);
     }
 
-    function projectDetail() {
-        alert('project detail');
-    }
+    // function projectDetail() {
+    //     alert('project detail');
+    // }
 
     return(
         <div className="board-page w-full h-full mx-auto">

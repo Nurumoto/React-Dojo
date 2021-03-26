@@ -57,7 +57,7 @@ function Footer() {
                     </div>
                     <div className="newsletter w-full gap-2">
                         <Input className="w-3/4 border border-blue-900 p-3 rounded" type="email" name="email" id="email" placeholder="Adresse mail" />
-                        <Button className="w-1/4 border bg-blue-900 py-3 px-6 text-white rounded" color="primary">OK</Button>
+                        <Button className="w-1/4 border bg-blue-900 px-6 text-white rounded" color="primary">OK</Button>
                     </div>
                 </div>
             </div>

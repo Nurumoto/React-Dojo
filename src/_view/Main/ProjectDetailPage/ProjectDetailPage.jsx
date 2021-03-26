@@ -13,13 +13,13 @@ function ProjectDetailPage() {
     return(
         <div className="project-page dj-d-blue">
             <Header></Header>
-            <div className="project-detail grid grid-cols-12 mt-10">
-                <div className="col-span-12 md:col-span-5">
+            <div className="project-detail block lg:flex mt-10 relative">
+                <div className="w-full md:5/12">
                     <div className="text-4xl dj-d-blue">
                         Comment compléter ?
                     </div>
                     <div className="grid grid-cols-12 mt-8">
-                        <div className="col-span-12 lg:col-span-7">
+                        <div className="col-span-12 sm:col-span-7">
                             <div className="text-3xl">
                                 Par catégorie
                             </div>
@@ -53,7 +53,7 @@ function ProjectDetailPage() {
                                 l’action et d’agréger / de financer les moyens nécessaires.
                             </div>
                         </div>
-                        <div className="col-span-12 lg:col-span-5 pl-5">
+                        <div className="col-span-12 sm:col-span-5 pl-5">
                             <div className="text-3xl">Par cercle</div>
                             <div className="text-2xl grid mt-2">
                                 Inner Circle
@@ -85,7 +85,7 @@ function ProjectDetailPage() {
                         </div>
                     </div>
                 </div>
-                <div className="col-span-12 md:col-span-7 relative">
+                <div className="w-full md:7/12 relative mt-60 md:mt-80 lg:mt-0">
                     <div className="flex justify-between absolute w-full top-8">
                         <div className="text-3xl">capacity</div>
                         <div className="text-3xl">Community building</div>
@@ -98,9 +98,9 @@ function ProjectDetailPage() {
                         <div className="blue">
                             <img src={circle} alt="diagram" className="w-full h-full absolute" />
                             <div className="chart-diagram flex relative">
-                                <img src={blank_board} className="w-1/2 h-full z-10 absolute" />
+                                <img src={blank_board} className="w-1/2 h-full z-10 absolute" alt="" />
                                 <div className="diagram diagram-click absolute w-1/2 h-full z-10 absolute">
-                                    <img src={quater_circle} className="quater-circle w-full h-full absolute z-10" />
+                                    <img src={quater_circle} className="quater-circle w-full h-full absolute z-10" alt="" />
                                     <img src={Ellipse_16} className="outer_circle absolute top-24 left-24 w-5" alt="outer cirlce dot" />
                                     <img src={Ellipse_17} className="outer_circle absolute top-40 left-40 w-5" alt="middle cirlce dot" />
                                     <img src={Ellipse_15} className="outer_circle absolute top-56 left-56 w-5" alt="inner cirlce dot" />

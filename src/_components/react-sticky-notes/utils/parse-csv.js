@@ -7,30 +7,30 @@ export function parseCSV(str) {
         arr[row] = arr[row] || [];
         arr[row][col] = arr[row][col] || '';
 
-        if (currentCharacter == '"' && quote && nextCharacter == '"') { 
+        if (currentCharacter === '"' && quote && nextCharacter === '"') { 
             arr[row][col] += currentCharacter; 
             ++c; 
             continue; 
         }  
 
-        if (currentCharacter == '"') { 
+        if (currentCharacter === '"') { 
             quote = !quote; 
             continue; 
         }
 
-        if (currentCharacter == ',' && !quote) {
+        if (currentCharacter === ',' && !quote) {
             ++col; 
             continue; 
         }
 
-        if (currentCharacter == '\r' && nextCharacter == '\n' && !quote) {
+        if (currentCharacter === '\r' && nextCharacter === '\n' && !quote) {
             col = 0; 
             ++row; 
             ++c; 
             continue; 
         }
 
-        if ( ( currentCharacter == '\r' || currentCharacter == '\n' )&& !quote) { 
+        if ( ( currentCharacter === '\r' || currentCharacter === '\n' )&& !quote) { 
             ++row; 
             col = 0; 
             continue;
