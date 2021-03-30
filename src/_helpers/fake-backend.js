@@ -33,13 +33,12 @@ export function configureFakeBackend() {
 
             function authenticate() {
                 const { username, password } = body;
-                const user = users.find(x => x.username === username && x.password === password);
+                const user = users.find(x => x.userEmail === username && x.password1 === password);
                 if (!user) return error('Username or password is incorrect');
                 return ok({
                     id: user.id,
-                    username: user.username,
-                    firstName: user.firstName,
-                    lastName: user.lastName,
+                    userEmail: user.userEmail,
+                    fullname: user.fullname,
                     token: 'fake-jwt-token'
                 });
             }
@@ -47,8 +46,8 @@ export function configureFakeBackend() {
             function register() {
                 const user = body;
     
-                if (users.find(x => x.username === user.username)) {
-                    return error(`Username  ${user.username} is already taken`);
+                if (users.find(x => x.userEmail === user.username)) {
+                    return error(`UserEmail  ${user.userEmail} is already taken`);
                 }
     
                 // assign user id and a few other properties then save

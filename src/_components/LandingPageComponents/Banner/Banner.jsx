@@ -19,10 +19,12 @@ function Banner() {
         password: ''
     });
     const [user, setUser] = useState({
-        firstName: '',
-        lastName: '',
-        username: '',
-        password: ''
+        fullname: '',
+        phone: '',
+        userEmail: '',
+        password1: '',
+        password2: ''
+
     });
     const [submitted, setSubmitted] = useState(false);
     const [register, setRegister] = useState(false);
@@ -38,7 +40,6 @@ function Banner() {
     function handleChange(e) {
         const { name, value } = e.target;
         setInputs(inputs => ({ ...inputs, [name]: value }));
-        console.log('email', inputs);
     }
     function handleRegisterChange(e) {
         const { name, value } = e.target;
@@ -55,11 +56,15 @@ function Banner() {
 
     function handleRegister(e) {
         e.preventDefault();
-
         setSubmitted(true);
-        console.log("asdfsf")
-        if (user.firstName && user.lastName && user.username && user.password) {
-            dispatch(userActions.register(user));
+        // if (user.firstName && user.lastName && user.username && user.password) {
+        //     dispatch(userActions.register(user));
+        // }
+        console.log(user);
+        if(user.password1 === user.password2){
+            if (user.fullname && user.phone && user.userEmail && user.password1) {
+                dispatch(userActions.register(user));
+            }
         }
     }
 
@@ -126,33 +131,100 @@ function Banner() {
                         ) : (
                             <div className="login">
                                 <div className="connexion text-3xl 2xl:text-6xl dj-d-blue text-center pb-5">Créer un compte</div>
-                                {/* <Form className="login-form gap-2 text-xs sm:text-sm 2xl:text-base" onSubmit={handleRegister}>
-                                    <div className="w-full grid grid-cols-4 flex gap-0 sm:gap-2 mb-4">
-                                        <FormGroup className="col-span-4 sm:col-span-2 mb-4 sm:mb-0">
-                                            <Input type="text" className="w-full p-3 text-xs sm:text-sm 2xl:text-base border rounded border-gray-200" name="name" id="name" placeholder="Nom Prénom" />
+                                <Form className="login-form gap-2 text-xs sm:text-sm 2xl:text-base" onSubmit={handleRegister}>
+                                    <div className="w-full flex gap-0 sm:gap-2 mb-3">
+                                        <FormGroup className="mb-0">
+                                            <Input 
+                                                type="text" 
+                                                className="w-full p-3 text-xs sm:text-sm 2xl:text-base border rounded border-gray-200"  
+                                                onChange={handleRegisterChange} 
+                                                value={user.fullname}
+                                                name="fullname" 
+                                                id="fullname" 
+                                                placeholder="Nom Prénom" 
+                                            />
+                                            {
+                                                register && !user.fullname &&
+                                                <div className="invalid-feedback">Name is required</div>
+                                            }
                                         </FormGroup>
-                                        <FormGroup className="col-span-4 sm:col-span-2">
-                                            <Input type="text" className="w-full p-3 text-xs sm:text-sm 2xl:text-base border rounded border-gray-200" name="phone" id="phone" placeholder="Téléphone" />
+                                        <FormGroup className="mb-0">
+                                            <Input 
+                                                type="text" 
+                                                className="w-full p-3 text-xs sm:text-sm 2xl:text-base border rounded border-gray-200"  
+                                                onChange={handleRegisterChange} 
+                                                value={user.phone}
+                                                name="phone" 
+                                                id="phone" 
+                                                placeholder="Téléphone" 
+                                            />
+                                            {
+                                                register && !user.phone &&
+                                                <div className="invalid-feedback">Phpne number is required</div>
+                                            }
                                         </FormGroup>
                                     </div>
-                                    <FormGroup className="mb-4">
-                                        <Input type="email" className="w-full text-xs p-3 sm:text-sm 2xl:text-base border rounded border-gray-200" name="email" id="email" placeholder="Adresse mail" />
+                                    <FormGroup className="mb-3">
+                                        <Input 
+                                            type="email" 
+                                            className="w-full text-xs p-3 sm:text-sm 2xl:text-base border rounded border-gray-200"  
+                                            onChange={handleRegisterChange}
+                                            value={user.userEmail}
+                                            name="userEmail" 
+                                            id="userEmail" 
+                                            placeholder="Adresse mail" 
+                                        />
+                                        {
+                                            register && !user.userEmail &&
+                                            <div className="invalid-feedback">Email is required</div>
+                                        }
                                     </FormGroup>
-                                    <FormGroup className="mb-4">
-                                        <Input type="password" className="w-full text-xs p-3 sm:text-sm 2xl:text-base border rounded border-gray-200" name="password" id="examplePassword" placeholder="Mot de passe " />
+                                    <FormGroup className="mb-3">
+                                        <Input 
+                                            type="password" 
+                                            className="w-full text-xs p-3 sm:text-sm 2xl:text-base border rounded border-gray-200" 
+                                            onChange={handleRegisterChange} 
+                                            value={user.password1}
+                                            name="password1" 
+                                            id="password1" 
+                                            placeholder="Mot de passe " 
+                                        />
+                                        {
+                                            register && !user.password1 &&
+                                            <div className="invalid-feedback">Password is required</div>
+                                        }
                                     </FormGroup>
-                                    <FormGroup className="mb-4">
-                                        <Input type="password" className="w-full text-xs p-3 sm:text-sm 2xl:text-base border rounded border-gray-200" name="password-confirm" id="password-confirm" placeholder="Confirmer le mot de passe" />
+                                    <FormGroup className="mb-3">
+                                        <Input 
+                                            type="password" 
+                                            className="w-full text-xs p-3 sm:text-sm 2xl:text-base border rounded border-gray-200" 
+                                            onChange={handleRegisterChange} 
+                                            value={user.password2}
+                                            name="password2" 
+                                            id="password2" 
+                                            placeholder="Confirmer le mot de passe" 
+                                        />
+                                        {
+                                            register && !user.password2 &&
+                                            <div className="invalid-feedback">Password confirm is required</div>
+                                        }
                                     </FormGroup>
-                                    <FormGroup className="flex items-center mb-4">
-                                        <Input type="checkbox" className="text-xs p-3 sm:text-sm 2xl:text-base border rounded border-gray-200" name="terms" id="terms" style={{marginLeft: '0px'}} />
-                                        &nbsp;&nbsp;&nbsp;&nbsp;I agree with all conditions
+                                    <FormGroup className="flex items-center mb-3">
+                                        <Input 
+                                            type="checkbox" 
+                                            className="text-xs p-3 sm:text-sm 2xl:text-base border rounded border-gray-200 mt-0" 
+                                            onChange={handleRegisterChange} 
+                                            name="terms" 
+                                            id="terms" 
+                                            style={{marginLeft: '0px'}} 
+                                        />
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I agree with all conditions
                                     </FormGroup>
                                     <div className="login-connecter">
                                         <Button className="login-btn w-full xl:w-3/6 text-white rounded bg-blue-900 hover:bg-yellow-500">Se connecter</Button>
                                     </div>
-                                </Form> */}
-                                <form name="form" onSubmit={handleRegister}>
+                                </Form>
+                                {/* <form name="form" onSubmit={handleRegister}>
                                     <div className="form-group">
                                         <label>First Name</label>
                                         <input type="text" name="firstName" value={user.firstName} onChange={handleRegisterChange} className={'form-control' + (submitted && !user.firstName ? ' is-invalid' : '')} />
@@ -186,9 +258,8 @@ function Banner() {
                                             {registering && <span className="spinner-border spinner-border-sm mr-1"></span>}
                                             Register
                                         </button>
-                                        {/* <Link to="/login" className="btn btn-link">Cancel</Link> */}
                                     </div>
-                                </form>
+                                </form> */}
                                 
                                 <div className="loginOrRegister text-xs sm:text-sm 2xl:text-base">
                                     <div>Vous avez déjà un compte ? </div>

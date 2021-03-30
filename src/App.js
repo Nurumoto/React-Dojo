@@ -23,10 +23,10 @@ export default function App() {
     });
 
     return (
-        <div className="w-full h-full text-xs sm:text-sm 2xl:text-base">
+        <div className="w-full h-full text-xs sm:text-sm 2xl:text-base relative">
             {
                 alert.message &&
-                    <div className={`alert ${alert.type}`}>{alert.message}</div>
+                    <div className={`alert ${alert.type} w-full md:w-1/2 xl:w-1/3 absolute left-10 top-28 z-10`}>{alert.message}</div>
             }
             <Router history={history}>
                 <Switch>
